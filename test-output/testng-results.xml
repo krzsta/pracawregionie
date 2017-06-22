@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="www.pracawregionie.pl - regression tests" duration-ms="15834" started-at="2017-06-22T18:10:31Z" finished-at="2017-06-22T18:10:47Z">
+    <groups>
+    </groups>
+    <test name="Main Page Check" duration-ms="15834" started-at="2017-06-22T18:10:31Z" finished-at="2017-06-22T18:10:47Z">
+      <class name="pl.pracawregionie.tests.Test1RegisterUser">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@6a41eaa2]" name="beforeTest" is-config="true" duration-ms="5649" started-at="2017-06-22T20:10:31Z" finished-at="2017-06-22T20:10:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="openMainPage()[pri:1, instance:pl.pracawregionie.tests.Test1RegisterUser@6a41eaa2]" name="openMainPage" duration-ms="29" started-at="2017-06-22T20:10:37Z" finished-at="2017-06-22T20:10:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMainPage -->
+        <test-method status="PASS" signature="navigationToRegisterNewUserPage()[pri:2, instance:pl.pracawregionie.tests.Test1RegisterUser@6a41eaa2]" name="navigationToRegisterNewUserPage" duration-ms="1544" started-at="2017-06-22T20:10:37Z" finished-at="2017-06-22T20:10:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigationToRegisterNewUserPage -->
+        <test-method status="PASS" signature="registerNewUser()[pri:3, instance:pl.pracawregionie.tests.Test1RegisterUser@6a41eaa2]" name="registerNewUser" duration-ms="7380" started-at="2017-06-22T20:10:39Z" finished-at="2017-06-22T20:10:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerNewUser -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@6a41eaa2]" name="afterTest" is-config="true" duration-ms="1206" started-at="2017-06-22T20:10:46Z" finished-at="2017-06-22T20:10:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- pl.pracawregionie.tests.Test1RegisterUser -->
+    </test> <!-- Main Page Check -->
+  </suite> <!-- www.pracawregionie.pl - regression tests -->
+</testng-results>

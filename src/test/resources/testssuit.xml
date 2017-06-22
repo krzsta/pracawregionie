@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="www.pracawregionie.pl - regression tests" parallel="false"
+	preserve-order="true">
+
+	<test name="Main Page Check">
+		<classes>
+			<class name="pl.pracawregionie.tests.Test1RegisterUser" />
+		</classes>
+	</test>
+</suite>
