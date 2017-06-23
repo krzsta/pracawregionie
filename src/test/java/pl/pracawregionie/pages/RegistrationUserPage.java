@@ -1,6 +1,8 @@
 package pl.pracawregionie.pages;
 
 import java.util.List;
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,8 +38,13 @@ public class RegistrationUserPage extends PageObject {
 	@FindBy(name = "terms_of_use")
 	private WebElement termsOfUseCheckbox;
 
-	@FindBy(className = "btn btn-success valid")
+	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-success valid']")
 	private WebElement confirmButton;
+	
+	//@FindBy(xpath = "//span[@class='help-inline' and contains(text(), 'Podany email istnieje już w systemie.')]")
+	//@class='bubble-title' and contains(text(), 'Cover')
+	//span[contains(text(), 'Assign Rate')]
+	//WebElement errorEmail;
 
 	public void registerNewUser(String FULL_EMAIL, String PASSWORD) {
 		emailField.clear();
@@ -50,19 +57,32 @@ public class RegistrationUserPage extends PageObject {
 		passwordConfirmField.sendKeys(PASSWORD);
 
 		genderChecklist.selectByValue("0");
+		
+		Random randomCheckbox = new Random();
+		
+		for (int i = 0; i < 4; i++) {
+			int indexCategoriesCheckboxes = randomCheckbox.nextInt(categoriesCheckboxes.size());		
+			categoriesCheckboxes.get(indexCategoriesCheckboxes).click();
+		}
+		
+		int indexVoivodeshipsCheckboxes = randomCheckbox.nextInt(voivodeshipsCheckboxes.size());
+		voivodeshipsCheckboxes.get(indexVoivodeshipsCheckboxes).click();
+		
+		licenseAcceptanceCheckbox.click();
+		termsOfUseCheckbox.click();
+		confirmButton.submit();
+	}
 
-		for (WebElement el : categoriesCheckboxes) {
+	/* do wykorzystania przy innych testach (testy modułów)
+	 
+	 for (WebElement el : categoriesCheckboxes) {
 			el.click();
 		}
 
 		for (WebElement el : voivodeshipsCheckboxes) {
 			el.click();
 		}
-
-		licenseAcceptanceCheckbox.click();
-		termsOfUseCheckbox.click();
-	}
-
+		
 	public boolean categoriesCheckboxesAssert() {
 		for (WebElement el : categoriesCheckboxes) {
 			el.isSelected();
@@ -76,5 +96,5 @@ public class RegistrationUserPage extends PageObject {
 		}
 		return true;
 	}
-
+	*/
 }

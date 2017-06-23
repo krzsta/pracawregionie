@@ -3,7 +3,7 @@
 <suite name="www.pracawregionie.pl - regression tests" parallel="false"
 	preserve-order="true">
 
-	<test name="Main Page Check">
+	<test name="www.pracawregionie.pl - regresion tests">
 		<classes>
 			<class name="pl.pracawregionie.tests.Test1RegisterUser" />
 		</classes>

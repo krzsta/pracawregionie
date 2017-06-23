@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [www.pracawregionie.pl - regression tests]">
-  <test name="Main Page Check(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
       <class name="pl.pracawregionie.tests.Test1RegisterUser">
         <methods>
           <include name="afterTest"/>
+          <include name="openMainPage"/>
+          <include name="afterMethod"/>
           <include name="beforeTest"/>
           <include name="registerNewUser"/>
         </methods>
       </class> <!-- pl.pracawregionie.tests.Test1RegisterUser -->
     </classes>
-  </test> <!-- Main Page Check(failed) -->
-</suite> <!-- Failed suite [www.pracawregionie.pl - regression tests] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
