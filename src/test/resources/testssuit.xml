@@ -6,6 +6,7 @@
 	<test name="www.pracawregionie.pl - regresion tests">
 		<classes>
 			<class name="pl.pracawregionie.tests.Test1RegisterUser" />
+			<class name="pl.pracawregionie.tests.Test2RegisterEmployer" />
 		</classes>
 	</test>
 </suite>

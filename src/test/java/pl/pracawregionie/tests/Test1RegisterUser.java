@@ -11,7 +11,12 @@ import com.accounts.google.gmail.GoogleEmailAccountLoginPage;
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationUserPage;
 
+
 public class Test1RegisterUser extends ConfigForTests {
+
+	public Test1RegisterUser() throws Exception {
+		super();
+	}
 
 	@BeforeTest
 	public void beforeTest() {
@@ -21,7 +26,7 @@ public class Test1RegisterUser extends ConfigForTests {
 	@Test(priority = 1)
 	public void openMainPage() {
 		Assert.assertEquals(driver.getTitle(), "Praca w Twoim regionie - pracawregionie.pl");
-		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pls/");		
+		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");		
 	}
 
 	@Test(priority = 2)
@@ -34,19 +39,21 @@ public class Test1RegisterUser extends ConfigForTests {
 	@Test(priority = 3)
 	public void registerNewUser() {
 		RegistrationUserPage newUser = new RegistrationUserPage(driver);
-		newUser.registerNewUser(FULL_EMAIL, PASSWORD);
+		newUser.registerNewUser(FULL_EMAIL, PASSWORD, gender);
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-success template']")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains(
 				"Zarejestrowano pomyślnie. Na podany adres email została wysłana wiadomość z linkiem aktywacyjnym."));
 		Assert.assertEquals(driver.getCurrentUrl(), "http://stage.pracawregionie.pl/user/auth/login");
 	}
 
+	/*
 	@Test(priority = 4)
 	public void loginToEmailAccountAndConfirmRegistration() {
 		GoogleEmailAccountLoginPage emailAccount = new GoogleEmailAccountLoginPage(driver);
 		emailAccount.navigateToEmailAccountAndLogIn();
 		Assert.assertEquals(driver.getCurrentUrl(), "https://mail.google.com/mail/u/0/#inbox");
 	}
+	*/
 
 	@AfterTest
 	public void afterTest() {

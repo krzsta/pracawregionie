@@ -18,6 +18,9 @@ public class MainPage extends PageObject {
 	@FindBy(linkText = "Rejestracja pracownika")
 	private WebElement registerUserLink;
 	
+	@FindBy(linkText = "Rejestracja pracodawcy")
+	private WebElement registerEmployerLink;
+	
 	public void clickOnRegMenuButton() {	
 		registerMenuButton.click();
 	}
@@ -26,9 +29,18 @@ public class MainPage extends PageObject {
 		registerUserLink.click();
 	}
 	
+	public void clickOnRegEmployerLink(){
+		registerEmployerLink.click();
+	}
+	
 	public void navigateToRegisterNewUserPage(){
 		clickOnRegMenuButton();
 		clickOnRegUserLink();
+	}
+	
+	public void navigateToRegisterNewEmployerPage(){
+		clickOnRegMenuButton();
+		clickOnRegEmployerLink();
 	}
 
 }

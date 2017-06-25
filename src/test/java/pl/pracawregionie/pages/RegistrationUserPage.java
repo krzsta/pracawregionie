@@ -46,7 +46,7 @@ public class RegistrationUserPage extends PageObject {
 	//span[contains(text(), 'Assign Rate')]
 	//WebElement errorEmail;
 
-	public void registerNewUser(String FULL_EMAIL, String PASSWORD) {
+	public void registerNewUser(String FULL_EMAIL, String PASSWORD, int gender) {
 		emailField.clear();
 		emailField.sendKeys(FULL_EMAIL);
 
@@ -56,7 +56,7 @@ public class RegistrationUserPage extends PageObject {
 		passwordConfirmField.clear();
 		passwordConfirmField.sendKeys(PASSWORD);
 
-		genderChecklist.selectByValue("0");
+		genderChecklist.selectByValue(Integer.toString(gender));
 		
 		Random randomCheckbox = new Random();
 		
