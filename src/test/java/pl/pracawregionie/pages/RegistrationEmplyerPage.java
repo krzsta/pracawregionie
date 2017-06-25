@@ -88,7 +88,7 @@ public class RegistrationEmplyerPage extends PageObject {
 	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-success valid']")
 	private WebElement confirmButton;
 
-	public void registerNewEmplyer(String FULL_EMAIL, String PASSWORD, String gender2) {
+	public void registerNewEmplyer(String FULL_EMAIL, String PASSWORD, String gender2, String userName, String userSurname) {		
 		emailField.clear();
 		emailField.sendKeys(FULL_EMAIL);
 
@@ -104,7 +104,10 @@ public class RegistrationEmplyerPage extends PageObject {
 		positionField.sendKeys(RandomStringUtils.randomAlphabetic(10));
 
 		nameField.clear();
-		nameField.sendKeys(RandomStringUtils.randomAlphabetic(10));
+		nameField.sendKeys(userName);
+		
+		surnameField.clear();
+		surnameField.sendKeys(userSurname);
 
 		phoneField.clear();
 		phoneField.sendKeys(RandomStringUtils.randomNumeric(9));
@@ -113,10 +116,10 @@ public class RegistrationEmplyerPage extends PageObject {
 		recruitmentTypeField.selectByValue(Integer.toString(random.nextInt(3) + 1));
 
 		nipField.clear();
-		nipField.sendKeys(RandomStringUtils.randomNumeric(10));
+		nipField.sendKeys("9197294419");
 
 		regonField.clear();
-		regonField.sendKeys(RandomStringUtils.randomNumeric(9));
+		regonField.sendKeys("697425515");
 
 		companyNameField.clear();
 		companyNameField.sendKeys(RandomStringUtils.randomAlphabetic(10));

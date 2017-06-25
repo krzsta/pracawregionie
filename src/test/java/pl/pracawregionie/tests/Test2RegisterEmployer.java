@@ -37,7 +37,7 @@ public class Test2RegisterEmployer extends ConfigForTests{
 	@Test(priority = 3)
 	public void registerNewEmployer() {
 		RegistrationEmplyerPage newEmployer = new RegistrationEmplyerPage(driver);
-		newEmployer.registerNewEmplyer(FULL_EMAIL, PASSWORD, gender2);
+		newEmployer.registerNewEmplyer(FULL_EMAIL, PASSWORD, gender2, userName, userSurname);
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-success template']")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains(

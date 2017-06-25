@@ -3,7 +3,6 @@ package pl.pracawregionie.tests;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -86,6 +85,7 @@ public class ConfigForTests {
 	
 	protected String genderCheck2() {
 		if (userName.length() - 1 == 'a') {
+			@SuppressWarnings("unused")
 			String gender = "Pani";
 		}
 		String gender = "Pan";

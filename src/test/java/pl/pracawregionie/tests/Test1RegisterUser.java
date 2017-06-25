@@ -46,14 +46,13 @@ public class Test1RegisterUser extends ConfigForTests {
 		Assert.assertEquals(driver.getCurrentUrl(), "http://stage.pracawregionie.pl/user/auth/login");
 	}
 
-	/*
+	
 	@Test(priority = 4)
 	public void loginToEmailAccountAndConfirmRegistration() {
 		GoogleEmailAccountLoginPage emailAccount = new GoogleEmailAccountLoginPage(driver);
 		emailAccount.navigateToEmailAccountAndLogIn();
 		Assert.assertEquals(driver.getCurrentUrl(), "https://mail.google.com/mail/u/0/#inbox");
-	}
-	*/
+	}	
 
 	@AfterTest
 	public void afterTest() {
