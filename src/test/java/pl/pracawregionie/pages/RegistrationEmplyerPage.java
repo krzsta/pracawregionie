@@ -122,7 +122,7 @@ public class RegistrationEmplyerPage extends PageObject {
 		regonField.sendKeys("697425515");
 
 		companyNameField.clear();
-		companyNameField.sendKeys(RandomStringUtils.randomAlphabetic(10));
+		companyNameField.sendKeys("TESTTEST " + RandomStringUtils.randomAlphabetic(10));
 
 		postalCodeField.clear();
 		positionField.sendKeys(RandomStringUtils.randomAlphabetic(2) + "-" + RandomStringUtils.randomAlphabetic(3));
@@ -135,7 +135,7 @@ public class RegistrationEmplyerPage extends PageObject {
 
 		voivodeshipField.selectByValue(Integer.toString(random.nextInt(19) + 1));
 
-		categoryField.selectByValue("32"); // ???????????????
+		categoryField.selectByValue("32"); // ??????????????? pomyslec jak to rzowiazac, rozne numery sa
 
 		employeeCountField.clear();
 		employeeCountField.sendKeys(RandomStringUtils.randomNumeric(2));

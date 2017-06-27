@@ -18,12 +18,6 @@ public class GoogleEmailAccountLoginPage extends PageObject {
 	private String emailAccountLogin = "testspwr@gmail.com";
 	private String emailAccountPassword = "QWEqwe123";
 
-	//@FindBy(id = "identifierNext")
-	//private WebElement nextButton;
-
-	//@FindBy(id = "passwordNext")
-	//private WebElement nextButton2;
-
 	@FindBy(id = "identifierId")
 	private WebElement logInField;
 
@@ -50,6 +44,5 @@ public class GoogleEmailAccountLoginPage extends PageObject {
 	public void logOutFromEmailAccount() {
 		userMenuButton.click();
 		logOutButton.click();
-		// Assert.assertTrue(driver.getTitle().contains("Gmail"));
 	}
 }

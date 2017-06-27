@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17589" started-at="2017-06-25T20:09:09Z" finished-at="2017-06-25T20:09:27Z">
+  <suite name="Default suite" duration-ms="35105" started-at="2017-06-27T17:05:10Z" finished-at="2017-06-27T17:05:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17589" started-at="2017-06-25T20:09:09Z" finished-at="2017-06-25T20:09:27Z">
+    <test name="Default test" duration-ms="35105" started-at="2017-06-27T17:05:10Z" finished-at="2017-06-27T17:05:45Z">
       <class name="pl.pracawregionie.tests.Test2RegisterEmployer">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="beforeTest" is-config="true" duration-ms="6028" started-at="2017-06-25T22:09:09Z" finished-at="2017-06-25T22:09:15Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="beforeTest" is-config="true" duration-ms="6144" started-at="2017-06-27T19:05:10Z" finished-at="2017-06-27T19:05:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="openMainPage()[pri:1, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="openMainPage" duration-ms="39" started-at="2017-06-25T22:09:15Z" finished-at="2017-06-25T22:09:15Z">
+        <test-method status="PASS" signature="openMainPage()[pri:1, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="openMainPage" duration-ms="28" started-at="2017-06-27T19:05:16Z" finished-at="2017-06-27T19:05:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openMainPage -->
-        <test-method status="PASS" signature="navigationToRegisterNewEmployerPage()[pri:2, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="navigationToRegisterNewEmployerPage" duration-ms="1313" started-at="2017-06-25T22:09:15Z" finished-at="2017-06-25T22:09:17Z">
+        <test-method status="PASS" signature="navigationToRegisterNewEmployerPage()[pri:2, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="navigationToRegisterNewEmployerPage" duration-ms="1654" started-at="2017-06-27T19:05:16Z" finished-at="2017-06-27T19:05:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigationToRegisterNewEmployerPage -->
-        <test-method status="PASS" signature="registerNewEmployer()[pri:3, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="registerNewEmployer" duration-ms="8898" started-at="2017-06-25T22:09:17Z" finished-at="2017-06-25T22:09:26Z">
+        <test-method status="PASS" signature="registerNewEmployer()[pri:3, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="registerNewEmployer" duration-ms="8147" started-at="2017-06-27T19:05:18Z" finished-at="2017-06-27T19:05:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerNewEmployer -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="afterTest" is-config="true" duration-ms="1279" started-at="2017-06-25T22:09:26Z" finished-at="2017-06-25T22:09:27Z">
+        <test-method status="PASS" signature="loginToEmailAccountAndConfirmRegistration()[pri:4, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="loginToEmailAccountAndConfirmRegistration" duration-ms="13031" started-at="2017-06-27T19:05:26Z" finished-at="2017-06-27T19:05:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToEmailAccountAndConfirmRegistration -->
+        <test-method status="PASS" signature="loginToAccount()[pri:5, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="loginToAccount" duration-ms="4757" started-at="2017-06-27T19:05:39Z" finished-at="2017-06-27T19:05:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToAccount -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:pl.pracawregionie.tests.Test2RegisterEmployer@4fe3c938]" name="afterTest" is-config="true" duration-ms="1312" started-at="2017-06-27T19:05:44Z" finished-at="2017-06-27T19:05:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

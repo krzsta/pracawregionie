@@ -6,11 +6,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.accounts.google.gmail.GoogleEmailAccount;
 import com.accounts.google.gmail.GoogleEmailAccountLoginPage;
 
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationUserPage;
-
 
 public class Test1RegisterUser extends ConfigForTests {
 
@@ -26,7 +26,7 @@ public class Test1RegisterUser extends ConfigForTests {
 	@Test(priority = 1)
 	public void openMainPage() {
 		Assert.assertEquals(driver.getTitle(), "Praca w Twoim regionie - pracawregionie.pl");
-		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");		
+		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");
 	}
 
 	@Test(priority = 2)
@@ -46,13 +46,27 @@ public class Test1RegisterUser extends ConfigForTests {
 		Assert.assertEquals(driver.getCurrentUrl(), "http://stage.pracawregionie.pl/user/auth/login");
 	}
 
-	
 	@Test(priority = 4)
 	public void loginToEmailAccountAndConfirmRegistration() {
 		GoogleEmailAccountLoginPage emailAccount = new GoogleEmailAccountLoginPage(driver);
 		emailAccount.navigateToEmailAccountAndLogIn();
 		Assert.assertEquals(driver.getCurrentUrl(), "https://mail.google.com/mail/u/0/#inbox");
-	}	
+
+		GoogleEmailAccount accountUser = new GoogleEmailAccount(driver);
+		accountUser.confirmRegistration();
+	}
+
+	@Test(priority = 5)
+	public void loginToAccount() {
+		driver.get(basicURL);
+		Assert.assertEquals(driver.getTitle(), "Praca w Twoim regionie - pracawregionie.pl");
+		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");
+
+		MainPage mainPage = new MainPage(driver);
+		mainPage.loginToAccount(FULL_EMAIL, PASSWORD);
+
+		Assert.assertTrue(driver.findElement(By.id("profile")).isDisplayed());
+	}
 
 	@AfterTest
 	public void afterTest() {

@@ -11,7 +11,15 @@ public class GoogleEmailAccount extends PageObject{
 		super(driver);
 	}
 	
-	@FindBy(xpath = "")
-	private WebElement a;
-
+	@FindBy(name = "pracawregionie.pl")
+	private WebElement confirmEmail;
+	
+	@FindBy(partialLinkText = "http://stage.pracawregionie.pl/user/auth/activate/")
+	WebElement confirmLink;
+	
+	public void confirmRegistration() {
+		confirmEmail.click();
+		confirmLink.click();
+	}
+	
 }
