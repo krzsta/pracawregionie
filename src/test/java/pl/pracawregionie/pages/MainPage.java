@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pl.pracawregionie.userAccoutPages.ConstansElementsOnUserPages;
+
 public class MainPage extends ConstansElementsOnUserPages {
 
 	public MainPage(WebDriver driver) {

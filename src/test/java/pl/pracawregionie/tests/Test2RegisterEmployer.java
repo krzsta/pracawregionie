@@ -1,19 +1,24 @@
 package pl.pracawregionie.tests;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.accounts.google.gmail.GoogleEmailAccount;
 import com.accounts.google.gmail.GoogleEmailAccountLoginPage;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+import pl.pracawregionie.configs.ConfigForTests2;
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationEmplyerPage;
 
-import org.testng.annotations.BeforeTest;
-import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-
-public class Test2RegisterEmployer extends ConfigForTests {
+public class Test2RegisterEmployer extends ConfigForTests2 {
 
 	public Test2RegisterEmployer() throws Exception {
 		super();
@@ -69,6 +74,21 @@ public class Test2RegisterEmployer extends ConfigForTests {
 		mainPage.loginToAccount(FULL_EMAIL, PASSWORD);
 
 		Assert.assertTrue(driver.findElement(By.id("profile")).isDisplayed());
+	}
+	
+	@AfterMethod
+	public void afterMethod(ITestResult result) {
+		if(result.getStatus() == ITestResult.FAILURE) {
+			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + "Test case Failed due to below issues", ExtentColor.RED));
+			test.fail(result.getThrowable());
+		}
+		else if(result.getStatus() == ITestResult.SUCCESS) {
+			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.GREEN));
+		}
+		else {
+			test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.YELLOW));
+			test.skip(result.getThrowable());
+		}
 	}
 
 	@AfterTest

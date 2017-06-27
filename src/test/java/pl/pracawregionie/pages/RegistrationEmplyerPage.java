@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import pl.pracawregionie.tests.PageObject;
+import pl.pracawregionie.configs.PageObject;
 
 public class RegistrationEmplyerPage extends PageObject {
 

@@ -1,4 +1,4 @@
-package pl.pracawregionie.tests;
+package pl.pracawregionie.configs;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

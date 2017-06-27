@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pl.pracawregionie.tests.PageObject;
+import pl.pracawregionie.configs.PageObject;
 
 public class GoogleEmailAccountLoginPage extends PageObject {
 	public GoogleEmailAccountLoginPage(WebDriver driver) {

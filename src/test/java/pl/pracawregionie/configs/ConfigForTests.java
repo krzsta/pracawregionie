@@ -1,4 +1,4 @@
-package pl.pracawregionie.tests;
+package pl.pracawregionie.configs;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

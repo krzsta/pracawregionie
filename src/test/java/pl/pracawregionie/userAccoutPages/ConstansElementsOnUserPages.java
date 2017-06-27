@@ -1,10 +1,10 @@
-package pl.pracawregionie.pages;
+package pl.pracawregionie.userAccoutPages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import pl.pracawregionie.tests.PageObject;
+import pl.pracawregionie.configs.PageObject;
 
 public abstract class ConstansElementsOnUserPages extends PageObject{
 	
