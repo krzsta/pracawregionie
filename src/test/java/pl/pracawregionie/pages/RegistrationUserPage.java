@@ -18,7 +18,7 @@ public class RegistrationUserPage extends PageObject {
 	}
 
 	@FindBy(id = "email")
-	private WebElement emailField;
+	private WebElement emailField; // te same property sa dla Employera -> wyjebac do klasy nadrzędnej
 
 	@FindBy(id = "password")
 	private WebElement passwordField;
@@ -41,15 +41,15 @@ public class RegistrationUserPage extends PageObject {
 	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-success valid']")
 	private WebElement confirmButton;
 
-	public void registerNewUser(String FULL_EMAIL, String PASSWORD, int gender) {
+	public void registerNewUser(String fullEmail, String password, int gender) { // zamiast inta korzystaj z enuma - Gender
 		emailField.clear();
-		emailField.sendKeys(FULL_EMAIL);
+		emailField.sendKeys(fullEmail);
 
 		passwordField.clear();
-		passwordField.sendKeys(PASSWORD);
+		passwordField.sendKeys(password);
 
 		passwordConfirmField.clear();
-		passwordConfirmField.sendKeys(PASSWORD);
+		passwordConfirmField.sendKeys(password);
 
 		genderChecklist.selectByValue(Integer.toString(gender));
 		

@@ -18,7 +18,7 @@ public class RegistrationEmplyerPage extends PageObject {
 	}
 
 	@FindBy(id = "email")
-	private WebElement emailField;
+	private WebElement emailField; // te same property sa dla Usera -> wyjebac do klasy nadrzędnej
 	
 	@FindBy(id = "password")
 	private WebElement passwordField;
@@ -88,17 +88,17 @@ public class RegistrationEmplyerPage extends PageObject {
 	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-success valid']")
 	private WebElement confirmButton;
 
-	public void registerNewEmplyer(String FULL_EMAIL, String PASSWORD, String gender2, String userName, String userSurname) {		
+	public void registerNewEmplyer(String fullEmail, String password, String strGender, String userName, String userSurname) {
 		emailField.clear();
-		emailField.sendKeys(FULL_EMAIL);
+		emailField.sendKeys(fullEmail);
 
 		passwordField.clear();
-		passwordField.sendKeys(PASSWORD);
+		passwordField.sendKeys(password);
 
 		passwordConfirmField.clear();
-		passwordConfirmField.sendKeys(PASSWORD);
+		passwordConfirmField.sendKeys(password);
 
-		genderChecklist.selectByValue(gender2);
+		genderChecklist.selectByValue(strGender);
 
 		positionField.clear();
 		positionField.sendKeys(RandomStringUtils.randomAlphabetic(10));
@@ -112,17 +112,16 @@ public class RegistrationEmplyerPage extends PageObject {
 		phoneField.clear();
 		phoneField.sendKeys(RandomStringUtils.randomNumeric(9));
 
-		Random random = new Random();
-		recruitmentTypeField.selectByValue(Integer.toString(random.nextInt(3) + 1));
+		recruitmentTypeField.selectByValue(Integer.toString(new Random().nextInt(3) + 1));
 
 		nipField.clear();
-		nipField.sendKeys("9197294419");
+		nipField.sendKeys("9197294419"); //do stałej final z tym
 
 		regonField.clear();
-		regonField.sendKeys("697425515");
+		regonField.sendKeys("697425515");  //do stałej final z tym
 
 		companyNameField.clear();
-		companyNameField.sendKeys("TESTTEST " + RandomStringUtils.randomAlphabetic(10));
+		companyNameField.sendKeys("TESTTEST " + RandomStringUtils.randomAlphabetic(10));  //do stałej final z tym
 
 		postalCodeField.clear();
 		positionField.sendKeys(RandomStringUtils.randomAlphabetic(2) + "-" + RandomStringUtils.randomAlphabetic(3));
@@ -135,19 +134,20 @@ public class RegistrationEmplyerPage extends PageObject {
 
 		voivodeshipField.selectByValue(Integer.toString(random.nextInt(19) + 1));
 
+		//Niewiem o co tu chodzi, jak cos to podpytaj
 		categoryField.selectByValue("32"); // ??????????????? pomyslec jak to rzowiazac, rozne numery sa
 
 		employeeCountField.clear();
 		employeeCountField.sendKeys(RandomStringUtils.randomNumeric(2));
 
 		companyEmailField.clear();
-		companyEmailField.sendKeys(FULL_EMAIL);
+		companyEmailField.sendKeys(fullEmail);
 
 		phoneField.clear();
 		phoneField.sendKeys(RandomStringUtils.randomNumeric(9));
 
 		wwwField.clear();
-		wwwField.sendKeys("www.google.pl");
+		wwwField.sendKeys("www.google.pl");  //do stałej final z tym
 
 		descriptionField.clear();
 		descriptionField.sendKeys(RandomStringUtils.randomAlphabetic(8) + " " + RandomStringUtils.randomAlphabetic(8)

@@ -46,17 +46,17 @@ public class MainPage extends ConstansElementsOnUserPages {
 		registerEmployerLink.click();
 	}
 
-	public void loginToAccount(String FULL_EMAIL, String PASSWORD) {
+	public void loginToAccount(String fullEmail, String password) {
 		loginLink.click();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf(loginAlertWindow));
 
 		emailField.clear();
-		emailField.sendKeys(FULL_EMAIL);
+		emailField.sendKeys(fullEmail);
 
 		passwordField.clear();
-		passwordField.sendKeys(PASSWORD);
+		passwordField.sendKeys(password);
 		passwordField.sendKeys(Keys.ENTER);
 	}
 
