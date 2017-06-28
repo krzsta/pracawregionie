@@ -12,36 +12,61 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ConfigForTests {
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.ChartLocation;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+public abstract class ConfigForTests {
 
 	public ConfigForTests() throws Exception {
 
 	}
 
 	protected WebDriver driver;
-	protected String basicURL = "http://dev:dev@stage.pracawregionie.pl/";
+	protected final String BASIC_URL = "http://dev:dev@stage.pracawregionie.pl/";
 	protected ChromeOptions chromeOptions;
 
-	protected String userName = this.readRandomNameFromFile();
-	protected String userSurname = this.readRandomSurnameFromFile();
+	protected String userName = readRandomNameFromFile();
+	protected String userSurname = readRandomSurnameFromFile();
 	protected String userLogin = userName + userSurname;
-	protected int gender = this.genderCheck();
-	protected String gender2 = this.genderCheck2();
+	protected int gender = genderCheck();
+	protected String gender2 = genderCheck2();
 	protected final String PASSWORD = "QWEqwe123";
 	protected final String EMAIL_FIRST = "testspwr+";
 	protected final String EMAIL_END = "@gmail.com";
 	protected final String FULL_EMAIL = EMAIL_FIRST + userLogin + EMAIL_END;
+	
+	protected ExtentHtmlReporter htmlReporter;
+	protected ExtentReports extent;
+	protected ExtentTest test;
 
 	protected void beforeTest() {
 		chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("--start-maximized", "--disable-extensions");
 		driver = new ChromeDriver(chromeOptions);
-		driver.get(basicURL);
+		driver.get(BASIC_URL);
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/reports/Report.html");
+		extent = new ExtentReports();
+		extent.attachReporter(htmlReporter);
+		
+		extent.setSystemInfo("Operating System", "Win10 Home Edition");
+		extent.setSystemInfo("Browser", "Chrome");
+		extent.setSystemInfo("Environment", "STAGE");
+		extent.setSystemInfo("Test author", "Krzysztof Stanowski");
+		
+		htmlReporter.config().setDocumentTitle("Regression tests");
+		htmlReporter.config().setReportName("Regression tests");
+		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+		htmlReporter.config().setTheme(Theme.DARK);
 	}
 
 	protected void afterTest() {
+		extent.flush();
 		driver.manage().deleteAllCookies();
 		driver.quit();
 	}
@@ -77,19 +102,18 @@ public class ConfigForTests {
 
 	protected int genderCheck() {
 		if (userName.length() - 1 == 'a') {
-			gender = 0;
+			gender = 0; //female
 		}
-		gender = 1;
+		gender = 1; //male
 		return gender;
 	}
 	
 	protected String genderCheck2() {
 		if (userName.length() - 1 == 'a') {
-			@SuppressWarnings("unused")
-			String gender = "Pani";
+			gender2 = "Pani";
 		}
-		String gender = "Pan";
-		return gender;
+		gender2 = "Pan";
+		return gender2;
 	}
 
 }

@@ -14,11 +14,11 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
-import pl.pracawregionie.configs.ConfigForTests2;
+import pl.pracawregionie.configs.ConfigForTests;
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationEmplyerPage;
 
-public class Test2RegisterEmployer extends ConfigForTests2 {
+public class Test2RegisterEmployer extends ConfigForTests {
 
 	public Test2RegisterEmployer() throws Exception {
 		super();
@@ -66,7 +66,7 @@ public class Test2RegisterEmployer extends ConfigForTests2 {
 
 	@Test(priority = 5)
 	public void loginToAccount() {
-		driver.get(basicURL);
+		driver.get(BASIC_URL);
 		Assert.assertEquals(driver.getTitle(), "Praca w Twoim regionie - pracawregionie.pl");
 		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");
 

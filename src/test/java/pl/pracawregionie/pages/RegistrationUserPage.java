@@ -40,11 +40,6 @@ public class RegistrationUserPage extends PageObject {
 
 	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-success valid']")
 	private WebElement confirmButton;
-	
-	//@FindBy(xpath = "//span[@class='help-inline' and contains(text(), 'Podany email istnieje już w systemie.')]")
-	//@class='bubble-title' and contains(text(), 'Cover')
-	//span[contains(text(), 'Assign Rate')]
-	//WebElement errorEmail;
 
 	public void registerNewUser(String FULL_EMAIL, String PASSWORD, int gender) {
 		emailField.clear();
@@ -73,28 +68,4 @@ public class RegistrationUserPage extends PageObject {
 		confirmButton.submit();
 	}
 
-	/* do wykorzystania przy innych testach (testy modułów)
-	 
-	 for (WebElement el : categoriesCheckboxes) {
-			el.click();
-		}
-
-		for (WebElement el : voivodeshipsCheckboxes) {
-			el.click();
-		}
-		
-	public boolean categoriesCheckboxesAssert() {
-		for (WebElement el : categoriesCheckboxes) {
-			el.isSelected();
-		}
-		return true;
-	}
-	
-	public boolean voivodeshipsCheckboxesAssert() {
-		for (WebElement el : voivodeshipsCheckboxes) {
-			el.isSelected();
-		}
-		return true;
-	}
-	*/
 }

@@ -2,29 +2,29 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12634" started-at="2017-06-27T19:14:57Z" finished-at="2017-06-27T19:15:10Z">
+  <suite name="Default suite" duration-ms="5805" started-at="2017-06-28T17:14:48Z" finished-at="2017-06-28T17:14:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12634" started-at="2017-06-27T19:14:57Z" finished-at="2017-06-27T19:15:10Z">
+    <test name="Default test" duration-ms="5805" started-at="2017-06-28T17:14:48Z" finished-at="2017-06-28T17:14:54Z">
       <class name="pl.pracawregionie.tests.Test1RegisterUser">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="beforeTest" is-config="true" duration-ms="10813" started-at="2017-06-27T21:14:57Z" finished-at="2017-06-27T21:15:08Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="beforeTest" is-config="true" duration-ms="4251" started-at="2017-06-28T19:14:48Z" finished-at="2017-06-28T19:14:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="FAIL" signature="openMainPage()[pri:1, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="openMainPage" duration-ms="31" started-at="2017-06-27T21:15:08Z" finished-at="2017-06-27T21:15:08Z">
+        <test-method status="FAIL" signature="openMainPage()[pri:1, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="openMainPage" duration-ms="26" started-at="2017-06-28T19:14:53Z" finished-at="2017-06-28T19:14:53Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [http://dev:dev@stage.pracawregionie.pl11111/] but found [http://dev:dev@stage.pracawregionie.pl/]]]>
+              <![CDATA[expected [http://dev:dev@stage.pracawregionie.pl111/] but found [http://dev:dev@stage.pracawregionie.pl/]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [http://dev:dev@stage.pracawregionie.pl11111/] but found [http://dev:dev@stage.pracawregionie.pl/]
+              <![CDATA[java.lang.AssertionError: expected [http://dev:dev@stage.pracawregionie.pl111/] but found [http://dev:dev@stage.pracawregionie.pl/]
 	at org.testng.Assert.fail(Assert.java:93)
 	at org.testng.Assert.failNotEquals(Assert.java:512)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
 	at org.testng.Assert.assertEquals(Assert.java:115)
 	at org.testng.Assert.assertEquals(Assert.java:189)
 	at org.testng.Assert.assertEquals(Assert.java:199)
-	at pl.pracawregionie.tests.Test1RegisterUser.openMainPage(Test1RegisterUser.java:38)
+	at pl.pracawregionie.tests.Test1RegisterUser.openMainPage(Test1RegisterUser.java:39)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -56,7 +56,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openMainPage -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="afterMethod" is-config="true" duration-ms="14" started-at="2017-06-27T21:15:08Z" finished-at="2017-06-27T21:15:08Z">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="afterMethod" is-config="true" duration-ms="9" started-at="2017-06-28T19:14:53Z" finished-at="2017-06-28T19:14:53Z">
           <params>
             <param index="0">
               <value>
@@ -67,7 +67,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="afterTest" is-config="true" duration-ms="1744" started-at="2017-06-27T21:15:08Z" finished-at="2017-06-27T21:15:10Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:pl.pracawregionie.tests.Test1RegisterUser@5442a311]" name="afterTest" is-config="true" duration-ms="1497" started-at="2017-06-28T19:14:53Z" finished-at="2017-06-28T19:14:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
