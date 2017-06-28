@@ -132,6 +132,7 @@ public class RegistrationEmplyerPage extends PageObject {
 		addressField.clear();
 		addressField.sendKeys(RandomStringUtils.randomAlphabetic(10));
 
+		Random random = new Random();
 		voivodeshipField.selectByValue(Integer.toString(random.nextInt(19) + 1));
 
 		//Niewiem o co tu chodzi, jak cos to podpytaj

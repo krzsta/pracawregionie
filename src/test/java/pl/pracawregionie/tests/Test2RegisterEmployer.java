@@ -46,7 +46,7 @@ public class Test2RegisterEmployer extends ConfigForTests {
 	@Test(priority = 3)
 	public void registerNewEmployer() {
 		RegistrationEmplyerPage newEmployer = new RegistrationEmplyerPage(driver);
-		newEmployer.registerNewEmplyer(FULL_EMAIL, PASSWORD, gender2, userName, userSurname);
+		newEmployer.registerNewEmplyer(fullEmail, password, gender, userName, userSurname);
 
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-success template']")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains(
@@ -66,12 +66,12 @@ public class Test2RegisterEmployer extends ConfigForTests {
 
 	@Test(priority = 5)
 	public void loginToAccount() {
-		driver.get(BASIC_URL);
+		driver.get(basicURL);
 		Assert.assertEquals(driver.getTitle(), "Praca w Twoim regionie - pracawregionie.pl");
 		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");
 
 		MainPage mainPage = new MainPage(driver);
-		mainPage.loginToAccount(FULL_EMAIL, PASSWORD);
+		mainPage.loginToAccount(fullEmail, password);
 
 		Assert.assertTrue(driver.findElement(By.id("profile")).isDisplayed());
 	}

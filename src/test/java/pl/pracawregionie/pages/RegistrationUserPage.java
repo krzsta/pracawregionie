@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import pl.pracawregionie.Gender;
 import pl.pracawregionie.configs.PageObject;
 
 public class RegistrationUserPage extends PageObject {
@@ -41,7 +42,7 @@ public class RegistrationUserPage extends PageObject {
 	@FindBy(xpath = "//button[@type='submit'][@class='btn btn-success valid']")
 	private WebElement confirmButton;
 
-	public void registerNewUser(String fullEmail, String password, int gender) { // zamiast inta korzystaj z enuma - Gender
+	public void registerNewUser(String fullEmail, String password, Gender gender) { // zamiast inta korzystaj z enuma - Gender
 		emailField.clear();
 		emailField.sendKeys(fullEmail);
 
@@ -51,7 +52,7 @@ public class RegistrationUserPage extends PageObject {
 		passwordConfirmField.clear();
 		passwordConfirmField.sendKeys(password);
 
-		genderChecklist.selectByValue(Integer.toString(gender));
+		genderChecklist.selectByValue(gender);
 		
 		Random randomCheckbox = new Random();
 		

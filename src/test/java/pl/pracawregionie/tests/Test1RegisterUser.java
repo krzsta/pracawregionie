@@ -60,7 +60,7 @@ public class Test1RegisterUser extends ConfigBase {
 		test.log(Status.INFO, "Assert url");
 
 		RegistrationUserPage newUser = new RegistrationUserPage(driver);
-		newUser.registerNewUser(FULL_EMAIL, PASSWORD, gender);
+		newUser.registerNewUser(fullEmail, password, gender);
 
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-success template']")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains(
@@ -95,12 +95,12 @@ public class Test1RegisterUser extends ConfigBase {
 		test.log(Status.INFO, "Login with valid credentials");
 		test.log(Status.INFO, "Assert accout");
 
-		driver.get(BASIC_URL);
+		driver.get(basicURL);
 
 		Assert.assertEquals(driver.getCurrentUrl(), "http://dev:dev@stage.pracawregionie.pl/");
 
 		MainPage mainPage = new MainPage(driver);
-		mainPage.loginToAccount(FULL_EMAIL, PASSWORD);
+		mainPage.loginToAccount(fullEmail, password);
 
 		Assert.assertTrue(driver.findElement(By.id("profile")).isDisplayed());
 	}

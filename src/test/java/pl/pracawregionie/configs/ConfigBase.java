@@ -18,9 +18,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.ChartLocation;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public abstract class ConfigBase {
 
@@ -36,6 +41,10 @@ public abstract class ConfigBase {
     protected String fullEmail;
     protected Gender gender; // mozna zrzutowac do int jesli trzeba przez (int)gender
     protected String strGender;
+    
+    protected ExtentHtmlReporter htmlReporter;
+	protected ExtentReports extent;
+	protected ExtentTest test;
 
     public ConfigBase(String password, String emailPrefix, String emailSuffix, String basicURL) throws IOException {
         this.password = password;
@@ -59,6 +68,20 @@ public abstract class ConfigBase {
         driver.get(basicURL);
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/reports/Report.html");
+		extent = new ExtentReports();
+		extent.attachReporter(htmlReporter);
+		
+		extent.setSystemInfo("Operating System", "Win10 Home Edition");
+		extent.setSystemInfo("Browser", "Chrome");
+		extent.setSystemInfo("Environment", "STAGE");
+		extent.setSystemInfo("Test author", "Krzysztof Stanowski");
+		
+		htmlReporter.config().setDocumentTitle("Regression tests");
+		htmlReporter.config().setReportName("Regression tests");
+		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+		htmlReporter.config().setTheme(Theme.DARK);
     }
 
     //j.w. @AfterTest
@@ -85,6 +108,7 @@ public abstract class ConfigBase {
 				test.skip(result.getThrowable());
 				break;
 		}
+	}
 
     private String readRandomFromFile(String path) throws IOException {
         List<String> lines = new ArrayList<>();
