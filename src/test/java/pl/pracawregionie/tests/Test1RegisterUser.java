@@ -14,20 +14,17 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+import pl.pracawregionie.configs.ConfigBase;
 import pl.pracawregionie.configs.ConfigForTests;
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationUserPage;
 
-public class Test1RegisterUser extends ConfigForTests {
+public class Test1RegisterUser extends ConfigBase {
 
 	public Test1RegisterUser() throws Exception {
-		super(); // mozesz wyjebac ConfigForTest2, dziedziczyc bezposrednio po ConfigBase i tutaj podac te parametry od razu: super("QWEqwe123", "testspwr+", "@gmail.com", "http://dev:dev@stage.pracawregionie.pl/");
-	}
-
-	// na 90% mozna dodac atrybut @BeforeTest w klasie bazowej po prostu i nie robic takiego wołania z super.afterTest()
-	@BeforeTest
-	public void beforeTest() {
-		super.beforeTest();
+		super("QWEqwe123", "testspwr+", "@gmail.com", "http://dev:dev@stage.pracawregionie.pl/");
+		// mozesz wyjebac ConfigForTest2, dziedziczyc bezposrednio po ConfigBase i tutaj podac te parametry od razu:
+		//super("QWEqwe123", "testspwr+", "@gmail.com", "http://dev:dev@stage.pracawregionie.pl/");
 	}
 
 	@Test(priority = 1)
@@ -108,26 +105,6 @@ public class Test1RegisterUser extends ConfigForTests {
 		Assert.assertTrue(driver.findElement(By.id("profile")).isDisplayed());
 	}
 
-	@AfterMethod
-	public void afterMethod(ITestResult result) {
-		//Przy takich małych operacjach z porównywaniem enumów najlepiej zawsze switch-case
-		switch(result.getStatus()){
-			case ITestResult.FAILURE:
-				test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + "Test case Failed due to below issues",
-						ExtentColor.RED));
-				test.fail(result.getThrowable());
-				break;
-			case ITestResult.SUCCESS:
-				test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.GREEN));
-				break;
-			default:
-				test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.YELLOW));
-				test.skip(result.getThrowable());
-				break;
-
-		}
-
-
 //
 //		if (result.getStatus() == ITestResult.FAILURE) {
 //		if (result.getStatus() == ITestResult.FAILURE) {
@@ -140,10 +117,5 @@ public class Test1RegisterUser extends ConfigForTests {
 //			test.skip(result.getThrowable());
 //		}
 //	}
-
-	@AfterTest
-	public void afterTest() {
-		super.afterTest();
-	}
 
 }

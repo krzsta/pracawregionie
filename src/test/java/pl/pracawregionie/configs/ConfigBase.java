@@ -10,6 +10,18 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+
 public abstract class ConfigBase {
 
     protected final String emailSuffix;
@@ -39,6 +51,7 @@ public abstract class ConfigBase {
     }
 
     //prawdopodobnie mozna dodac odpowiednie importy i tutaj atrybut @BeforeTest, a te wołania w klasach potomnych do wyjebania
+    @BeforeTest
     protected void beforeTest() {
         chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized", "--disable-extensions");
@@ -49,10 +62,29 @@ public abstract class ConfigBase {
     }
 
     //j.w. @AfterTest
+    @AfterTest
     protected void afterTest() {
         driver.manage().deleteAllCookies();
         driver.quit();
     }
+    
+	@AfterMethod
+	public void afterMethod(ITestResult result) {
+		//Przy takich małych operacjach z porównywaniem enumów najlepiej zawsze switch-case
+		switch(result.getStatus()){
+			case ITestResult.FAILURE:
+				test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + "Test case Failed due to below issues",
+						ExtentColor.RED));
+				test.fail(result.getThrowable());
+				break;
+			case ITestResult.SUCCESS:
+				test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.GREEN));
+				break;
+			default:
+				test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.YELLOW));
+				test.skip(result.getThrowable());
+				break;
+		}
 
     private String readRandomFromFile(String path) throws IOException {
         List<String> lines = new ArrayList<>();
