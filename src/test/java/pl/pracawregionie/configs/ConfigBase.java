@@ -56,10 +56,10 @@ public abstract class ConfigBase {
         this.userLogin = userName + userSurname;
         this.fullEmail = emailPrefix + userLogin + emailSuffix;
         this.gender = this.userName.toLowerCase().endsWith("a") ? Gender.FEMALE : Gender.MALE;
+        this.gender = this.userName.toLowerCase().endsWith("a") ? Gender.FEMALE2 : Gender.MALE2; //sprawdzić czy działa (poszukać lepszego rozwiązania)
         this.strGender = this.gender.toString();
     }
 
-    //prawdopodobnie mozna dodac odpowiednie importy i tutaj atrybut @BeforeTest, a te wołania w klasach potomnych do wyjebania
     @BeforeTest
     protected void beforeTest() {
         chromeOptions = new ChromeOptions();
@@ -69,7 +69,7 @@ public abstract class ConfigBase {
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/reports/Report.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/reports/Report.html"); //dopisać datę do nazwy pliku
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
 		
@@ -84,7 +84,6 @@ public abstract class ConfigBase {
 		htmlReporter.config().setTheme(Theme.DARK);
     }
 
-    //j.w. @AfterTest
     @AfterTest
     protected void afterTest() {
         driver.manage().deleteAllCookies();

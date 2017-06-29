@@ -2,20 +2,13 @@ package pl.pracawregionie.tests;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.accounts.google.gmail.GoogleEmailAccount;
 import com.accounts.google.gmail.GoogleEmailAccountLoginPage;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import pl.pracawregionie.configs.ConfigBase;
-import pl.pracawregionie.configs.ConfigForTests;
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationUserPage;
 
@@ -60,7 +53,7 @@ public class Test1RegisterUser extends ConfigBase {
 		test.log(Status.INFO, "Assert url");
 
 		RegistrationUserPage newUser = new RegistrationUserPage(driver);
-		newUser.registerNewUser(fullEmail, password, gender);
+		newUser.registerNewUser(fullEmail, password, strGender);
 
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-success template']")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains(

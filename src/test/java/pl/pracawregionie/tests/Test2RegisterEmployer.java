@@ -2,31 +2,19 @@ package pl.pracawregionie.tests;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.accounts.google.gmail.GoogleEmailAccount;
 import com.accounts.google.gmail.GoogleEmailAccountLoginPage;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
 
-import pl.pracawregionie.configs.ConfigForTests;
+import pl.pracawregionie.configs.ConfigBase;
 import pl.pracawregionie.pages.MainPage;
 import pl.pracawregionie.pages.RegistrationEmplyerPage;
 
-public class Test2RegisterEmployer extends ConfigForTests {
+public class Test2RegisterEmployer extends ConfigBase {
 
 	public Test2RegisterEmployer() throws Exception {
-		super();
-	}
-
-	@BeforeTest
-	public void beforeTest() {
-		super.beforeTest();
+		super("QWEqwe123", "testspwr+", "@gmail.com", "http://dev:dev@stage.pracawregionie.pl/");
 	}
 
 	@Test(priority = 1)
@@ -46,7 +34,7 @@ public class Test2RegisterEmployer extends ConfigForTests {
 	@Test(priority = 3)
 	public void registerNewEmployer() {
 		RegistrationEmplyerPage newEmployer = new RegistrationEmplyerPage(driver);
-		newEmployer.registerNewEmplyer(fullEmail, password, gender, userName, userSurname);
+		newEmployer.registerNewEmplyer(fullEmail, password, strGender, userName, userSurname);
 
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-success template']")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains(
@@ -74,26 +62,6 @@ public class Test2RegisterEmployer extends ConfigForTests {
 		mainPage.loginToAccount(fullEmail, password);
 
 		Assert.assertTrue(driver.findElement(By.id("profile")).isDisplayed());
-	}
-	
-	@AfterMethod
-	public void afterMethod(ITestResult result) {
-		if(result.getStatus() == ITestResult.FAILURE) {
-			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + "Test case Failed due to below issues", ExtentColor.RED));
-			test.fail(result.getThrowable());
-		}
-		else if(result.getStatus() == ITestResult.SUCCESS) {
-			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.GREEN));
-		}
-		else {
-			test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + "Test case PASSED", ExtentColor.YELLOW));
-			test.skip(result.getThrowable());
-		}
-	}
-
-	@AfterTest
-	public void afterTest() {
-		super.afterTest();
-	}
+	}	
 
 }
